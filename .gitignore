@@ -1,4 +1,34 @@
+# Dependencies
 node_modules/
+
+# Build / tooling output
 dist/
+*.tsbuildinfo
+
+# Test & coverage
+coverage/
+
+# ESLint
+.eslintcache
+
+# Environment (secrets)
+.env
+.env.*
+!.env.example
+
+# Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Editors (local preferences)
+.vscode/
+.idea/
+
+# Cursor (if present in project root)
+.cursor/
