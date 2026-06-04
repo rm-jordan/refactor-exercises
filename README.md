@@ -46,6 +46,7 @@ Each folder has the code to refactor, a `README.md`, and tests that define the b
 - **Reset an exercise:** `npm run reset -- 04-conditional-explosion` (copies `reference/` → `exercises/`, keeps tests)
 - **[CHEAT-SHEET.md](./CHEAT-SHEET.md)** — if you see X, do Y ([print PDF](./cheat-sheet.html))
 - **[exercises-js/](./exercises-js/)** — plain JavaScript (04, 05, 07, 11, 12, 13)
+- **[exercises-react/](./exercises-react/)** — optional React component refactor (frontend roles)
 
 ESLint is configured for TypeScript (`npm run lint`). Install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension in Cursor/VS Code for inline diagnostics.
 

@@ -1,4 +1,5 @@
 import eslint from "@eslint/js";
+import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
@@ -10,6 +11,11 @@ export default tseslint.config(
       "exercises-js/**/*.js",
       "reference-js/**/*.js",
     ],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
+    },
     rules: {
       "no-unused-vars": [
         "error",
@@ -18,7 +24,14 @@ export default tseslint.config(
     },
   },
   {
-    files: ["exercises/**/*.ts", "reference/**/*.ts", "vitest.config.ts"],
+    files: [
+      "exercises/**/*.ts",
+      "reference/**/*.ts",
+      "exercises-react/**/*.tsx",
+      "reference-react/**/*.tsx",
+      "vitest.config.ts",
+      "vitest.setup.ts",
+    ],
     languageOptions: {
       parserOptions: {
         projectService: true,

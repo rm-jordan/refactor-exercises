@@ -42,6 +42,8 @@ Same smells, different shape:
 
 Do **not** assume React unless they say so. Your `exercises/` folder is the main prep.
 
+**Optional React drill:** [`exercises-react/01-messy-user-card`](./exercises-react/01-messy-user-card/) — typed props, flatten nested JSX (`npm run reset:react -- 01-messy-user-card`).
+
 ## If they want review only (no refactor)
 
 See [`review/`](./review/). Practice 10 minutes of **comments only** on `reference/` files.

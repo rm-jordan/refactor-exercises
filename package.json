@@ -11,12 +11,21 @@
     "lint": "eslint .",
     "check": "npm run typecheck && npm run lint && npm run test",
     "reset": "node scripts/reset-exercise.mjs",
-    "reset:js": "RESET_JS=1 node scripts/reset-exercise.mjs"
+    "reset:js": "RESET_JS=1 node scripts/reset-exercise.mjs",
+    "reset:react": "RESET_REACT=1 node scripts/reset-exercise.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
     "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.4.1",
     "eslint": "^9.28.0",
+    "jsdom": "^26.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.0",
     "vitest": "^3.1.2"

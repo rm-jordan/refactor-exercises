@@ -17,6 +17,7 @@
 | `.then` / callback chain on async | `async/await`; extract `fetch` + error parsing |
 | Function mutates input object | Copy first (`{ ...input }`); mutate the copy only |
 | Validation copied in multiple places | Reuse `isValidEmail` / shared validators |
+| Nested JSX ternaries, `props: any` | Type props; early return; child component or variables before JSX |
 
 ## First 5 minutes on new code
 
