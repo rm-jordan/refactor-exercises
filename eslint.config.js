@@ -2,9 +2,21 @@ import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["node_modules/**", "dist/**"] },
+  { ignores: ["node_modules/**", "dist/**", "scripts/**"] },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
+  {
+    files: [
+      "exercises-js/**/*.js",
+      "reference-js/**/*.js",
+    ],
+    rules: {
+      "no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+    },
+  },
   {
     files: ["exercises/**/*.ts", "reference/**/*.ts", "vitest.config.ts"],
     languageOptions: {

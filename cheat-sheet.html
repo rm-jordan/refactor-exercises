@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Refactoring cheat sheet</title>
+    <style>
+      @page {
+        size: letter;
+        margin: 0.6in;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        font-size: 11pt;
+        line-height: 1.35;
+        color: #111;
+        max-width: 7.5in;
+        margin: 0 auto;
+        padding: 0.5in;
+      }
+      h1 {
+        font-size: 16pt;
+        margin: 0 0 0.25em;
+      }
+      .sub {
+        color: #444;
+        margin: 0 0 1em;
+        font-size: 10pt;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1em;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 6px 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: #f0f0f0;
+        width: 38%;
+      }
+      h2 {
+        font-size: 12pt;
+        margin: 1em 0 0.35em;
+      }
+      ul {
+        margin: 0.2em 0;
+        padding-left: 1.2em;
+      }
+      .dont {
+        color: #800;
+      }
+      @media print {
+        body {
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Refactoring cheat sheet</h1>
+    <p class="sub">If you see this → do this. Keep tests green. Small steps.</p>
+
+    <table>
+      <tr>
+        <th>You see</th>
+        <th>Do this</th>
+      </tr>
+      <tr>
+        <td><code>any</code> on a parameter</td>
+        <td>Type fields actually used (<code>email?</code>, <code>amount</code>, JSDoc in JS)</td>
+      </tr>
+      <tr>
+        <td>Long function (math + I/O)</td>
+        <td>Extract pure logic; orchestrator: validate → work → log → return</td>
+      </tr>
+      <tr>
+        <td>Duplicate logic in 2+ functions</td>
+        <td>One helper; thin exports if API must stay</td>
+      </tr>
+      <tr>
+        <td><code>if/else if</code> on fixed strings</td>
+        <td>Object lookup: <code>MAP[key] ?? default</code></td>
+      </tr>
+      <tr>
+        <td>Magic numbers (18, 0.15, 5)</td>
+        <td>Named <code>const</code> at top</td>
+      </tr>
+      <tr>
+        <td>Nested <code>if</code> pyramid</td>
+        <td>Guard clauses → early <code>return false</code></td>
+      </tr>
+      <tr>
+        <td>Same 4+ parameters everywhere</td>
+        <td>One object type; bundle at boundary if tests use separate args</td>
+      </tr>
+      <tr>
+        <td>DB + email + analytics in one function</td>
+        <td>Split steps; <strong>same order</strong> of side effects</td>
+      </tr>
+      <tr>
+        <td><code>null</code> / missing fields</td>
+        <td>Widen type; guard before <code>.</code> access</td>
+      </tr>
+      <tr>
+        <td>Many boolean flags (<code>isUrgent</code>…)</td>
+        <td>Options object; map flags at top of function</td>
+      </tr>
+      <tr>
+        <td><code>.then</code> async chain</td>
+        <td><code>async/await</code>; extract URL + error helper</td>
+      </tr>
+      <tr>
+        <td>Mutates input argument</td>
+        <td><code>const copy = { ...input }</code>; change copy only</td>
+      </tr>
+      <tr>
+        <td>Duplicated validation rules</td>
+        <td>Call existing validators; don’t copy checks</td>
+      </tr>
+    </table>
+
+    <h2>First 5 minutes</h2>
+    <ul>
+      <li>Run tests</li>
+      <li>Say behavior out loud</li>
+      <li>List 2–3 smells</li>
+      <li>Ask: exports? TS or JS? tests fixed?</li>
+      <li>One refactor → tests again</li>
+    </ul>
+
+    <h2 class="dont">Do not</h2>
+    <ul class="dont">
+      <li>Big-bang rewrite</li>
+      <li>Silent behavior changes</li>
+      <li>Frameworks / over-abstraction</li>
+    </ul>
+  </body>
+</html>
