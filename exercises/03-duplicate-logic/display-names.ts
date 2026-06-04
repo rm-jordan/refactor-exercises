@@ -1,4 +1,9 @@
-export function getAdminDisplayName(user: any) {
+export type User = {
+  firstName?: string;
+  lastName?: string;
+};
+
+function getDisplayName(user: User): string {
   if (!user.firstName || !user.lastName) {
     return "Unknown User";
   }
@@ -6,10 +11,10 @@ export function getAdminDisplayName(user: any) {
   return `${user.firstName} ${user.lastName}`;
 }
 
-export function getCustomerDisplayName(user: any) {
-  if (!user.firstName || !user.lastName) {
-    return "Unknown User";
-  }
+export function getAdminDisplayName(user: User): string {
+  return getDisplayName(user);
+}
 
-  return `${user.firstName} ${user.lastName}`;
+export function getCustomerDisplayName(user: User): string {
+  return getDisplayName(user);
 }
