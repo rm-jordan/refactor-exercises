@@ -8,8 +8,8 @@ JavaScript mirrors for interviews that use `.js` instead of `.ts`.
 | `05-magic-numbers` | Named constants |
 | `07-nested-conditionals` | Guard clauses |
 | `11-flag-arguments` | Options object (from booleans) |
-| `12-legacy-async` | async/await |
-| `13-avoid-mutation` | No input mutation |
+| `12-order-status-display` | Status → badge lookup |
+| `13-messy-list-filter` | Filter + sort for UI table |
 
 ```bash
 npm test                    # runs TS + JS tests

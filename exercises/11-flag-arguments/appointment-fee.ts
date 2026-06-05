@@ -3,19 +3,23 @@ export function bookAppointment(
   isUrgent: boolean,
   sendEmail: boolean,
   isVirtual: boolean,
-) {
+): number {
+  const appointment = { date, isUrgent, sendEmail, isVirtual };
+
   let fee = 50;
 
-  if (isUrgent) {
+  if (appointment.isUrgent) {
     fee += 30;
   }
 
-  if (isVirtual) {
+  if (appointment.isVirtual) {
     fee -= 10;
   }
 
-  if (sendEmail) {
-    console.log(`Sending confirmation for ${date.toISOString()}`);
+  if (appointment.sendEmail) {
+    console.log(
+      `Sending confirmation for ${appointment.date.toISOString()}`,
+    );
   }
 
   return fee;

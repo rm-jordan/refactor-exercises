@@ -32,8 +32,8 @@ npx vitest run exercises/01-types-and-readability
 | 9 | `09-hidden-business-rule` | Surface loyalty discount rules |
 | 10 | `10-capstone-quote` | **Mixed smells** — simulate unfamiliar live code |
 | 11 | `11-flag-arguments` | Boolean flags → options object |
-| 12 | `12-legacy-async` | `.then` chain → `async/await` |
-| 13 | `13-avoid-mutation` | Stop mutating inputs (reset for failing test) |
+| 12 | `12-order-status-display` | Status → badge label/tone (lookup table) |
+| 13 | `13-messy-list-filter` | Filter + sort list for UI (extract helpers) |
 | 14 | `14-duplicate-validation` | Reuse validators in `registerContact` |
 
 Each folder has the code to refactor, a `README.md`, and tests that define the behavior contract. **Do not edit tests** unless you find a genuine bug in them.
@@ -45,7 +45,7 @@ Each folder has the code to refactor, a `README.md`, and tests that define the b
 - **[mock/50-minute-live.md](./mock/50-minute-live.md)** — timed full run
 - **Reset an exercise:** `npm run reset -- 04-conditional-explosion` (copies `reference/` → `exercises/`, keeps tests)
 - **[CHEAT-SHEET.md](./CHEAT-SHEET.md)** — if you see X, do Y ([print PDF](./cheat-sheet.html))
-- **[exercises-js/](./exercises-js/)** — plain JavaScript (04, 05, 07, 11, 12, 13)
+- **[exercises-js/](./exercises-js/)** — plain JavaScript (04, 05, 07, 11, 12, 13 mirrors)
 - **[exercises-react/](./exercises-react/)** — optional React component refactor (frontend roles)
 
 ESLint is configured for TypeScript (`npm run lint`). Install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension in Cursor/VS Code for inline diagnostics.

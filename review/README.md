@@ -30,7 +30,8 @@ Practice **reading someone else's code** and giving constructive feedback — ha
 | B | [`reference/04-conditional-explosion/shipping-cost.ts`](../reference/04-conditional-explosion/shipping-cost.ts) | Conditional explosion, default for unknown types |
 | C | [`reference/08-data-clumps/address.ts`](../reference/08-data-clumps/address.ts) | Data clump, duplication across functions |
 | D | [`reference/02-long-function/process-order.ts`](../reference/02-long-function/process-order.ts) | Long function, logging mixed with math, `any` |
-| E | [`reference/12-legacy-async/legacy-client.ts`](../reference/12-legacy-async/legacy-client.ts) | Promise `.then`, error handling, URL building |
+| E | [`reference/12-order-status-display/order-status.ts`](../reference/12-order-status-display/order-status.ts) | Status if/else chain, UI label/tone mapping |
+| G | [`reference/13-messy-list-filter/catalog-filter.ts`](../reference/13-messy-list-filter/catalog-filter.ts) | Imperative filter/sort, magic default, extract helpers |
 | F | [`reference/14-duplicate-validation/contact-registration.ts`](../reference/14-duplicate-validation/contact-registration.ts) | Duplicated validation vs helpers |
 
 ## Optional: written review template
