@@ -38,8 +38,14 @@ npx vitest run exercises/01-types-and-readability
 | 15 | `15-guard-clauses-auth` | Flatten “show admin nav?” permission checks |
 | 16 | `16-signup-validation` | Signup form reuses email/password validators |
 | 17 | `17-order-row-summary` | Order table row — extract math, shipping lookup |
+| 18 | `18-can-edit-post` | **Extra rep** — guard clauses (like 15) |
+| 19 | `19-login-validation` | **Extra rep** — reuse validators (like 16) |
+| 20 | `20-cart-row-summary` | **Extra rep** — cart row formatter (like 17) |
+| 21 | `21-plan-label` | **Extra rep** — plan name lookup (like 04) |
 
 Each folder has the code to refactor, a `README.md`, and tests that define the behavior contract. **Do not edit tests** unless you find a genuine bug in them.
+
+**Extra reps (18–21):** fresh unsolved files — practice without resetting folders you already finished.
 
 ### What to practice for a 30–45 min screen
 
@@ -47,6 +53,7 @@ Each folder has the code to refactor, a `README.md`, and tests that define the b
 |----------|---------|-----|
 | **Do these** | 04, 05, 06, 07, 14, **15**, **16**, 10 | One clear smell each; matches live review pacing |
 | **Also good** | 01, 02, 03, 08, 09, 11, **17** | Same moves, slightly more code |
+| **Extra reps** | **18**, **19**, **20**, **21** | Same patterns as 15–17 / 04 — new files, no reset |
 | **Stretch** | 12, 13 | Multi-step (lookup + extra rule / filter + sort) |
 
 ### Code interview prep (not behavioral)
@@ -56,6 +63,7 @@ Each folder has the code to refactor, a `README.md`, and tests that define the b
 - **[mock/50-minute-live.md](./mock/50-minute-live.md)** — timed full run
 - **Reset an exercise:** `npm run reset -- 04-conditional-explosion` (copies `reference/` → `exercises/`, keeps tests)
 - **[CHEAT-SHEET.md](./CHEAT-SHEET.md)** — if you see X, do Y ([print PDF](./cheat-sheet.html))
+- **[MY-BLINDSPOTS.md](./MY-BLINDSPOTS.md)** — personal weak spots from practice (wiring, keys vs values, order of steps)
 - **[exercises-js/](./exercises-js/)** — plain JavaScript (04, 05, 07, 11, 12, 13 mirrors)
 - **[exercises-react/](./exercises-react/)** — optional React component refactor (frontend roles)
 
