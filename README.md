@@ -35,8 +35,19 @@ npx vitest run exercises/01-types-and-readability
 | 12 | `12-order-status-display` | Status → badge label/tone (lookup table) |
 | 13 | `13-messy-list-filter` | Filter + sort list for UI (extract helpers) |
 | 14 | `14-duplicate-validation` | Reuse validators in `registerContact` |
+| 15 | `15-guard-clauses-auth` | Flatten “show admin nav?” permission checks |
+| 16 | `16-signup-validation` | Signup form reuses email/password validators |
+| 17 | `17-order-row-summary` | Order table row — extract math, shipping lookup |
 
 Each folder has the code to refactor, a `README.md`, and tests that define the behavior contract. **Do not edit tests** unless you find a genuine bug in them.
+
+### What to practice for a 30–45 min screen
+
+| Priority | Folders | Why |
+|----------|---------|-----|
+| **Do these** | 04, 05, 06, 07, 14, **15**, **16**, 10 | One clear smell each; matches live review pacing |
+| **Also good** | 01, 02, 03, 08, 09, 11, **17** | Same moves, slightly more code |
+| **Stretch** | 12, 13 | Multi-step (lookup + extra rule / filter + sort) |
 
 ### Code interview prep (not behavioral)
 

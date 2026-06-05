@@ -32,6 +32,9 @@ Practice **reading someone else's code** and giving constructive feedback — ha
 | D | [`reference/02-long-function/process-order.ts`](../reference/02-long-function/process-order.ts) | Long function, logging mixed with math, `any` |
 | E | [`reference/12-order-status-display/order-status.ts`](../reference/12-order-status-display/order-status.ts) | Status if/else chain, UI label/tone mapping |
 | G | [`reference/13-messy-list-filter/catalog-filter.ts`](../reference/13-messy-list-filter/catalog-filter.ts) | Imperative filter/sort, magic default, extract helpers |
+| H | [`reference/15-guard-clauses-auth/access-check.ts`](../reference/15-guard-clauses-auth/access-check.ts) | Nested auth checks → guard clauses |
+| I | [`reference/16-signup-validation/signup-form.ts`](../reference/16-signup-validation/signup-form.ts) | Signup handler ignores existing validators |
+| J | [`reference/17-order-row-summary/order-summary.ts`](../reference/17-order-row-summary/order-summary.ts) | Table row formatter — math + shipping + VIP in one function |
 | F | [`reference/14-duplicate-validation/contact-registration.ts`](../reference/14-duplicate-validation/contact-registration.ts) | Duplicated validation vs helpers |
 
 ## Optional: written review template

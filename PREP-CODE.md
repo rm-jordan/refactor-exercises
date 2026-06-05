@@ -18,6 +18,8 @@ For **live code review & refactoring** when you have not seen the codebase befor
    | Magic numbers | “I’d name the business constants.” |
    | Nested ifs | “I’d use guard clauses.” |
    | Repeated parameters | “I’d introduce an Address-like type.” |
+   | Permission / empty checks nested | “I’d use guard clauses — fail fast.” |
+   | Form submit copies validator logic | “I’d call the existing `isValid…` helpers.” |
 
 5. **Ask two clarifying questions** (always OK):
 
