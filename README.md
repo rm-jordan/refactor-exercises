@@ -63,7 +63,6 @@ Each folder has the code to refactor, a `README.md`, and tests that define the b
 - **[mock/50-minute-live.md](./mock/50-minute-live.md)** — timed full run
 - **Reset an exercise:** `npm run reset -- 04-conditional-explosion` (copies `reference/` → `exercises/`, keeps tests)
 - **[CHEAT-SHEET.md](./CHEAT-SHEET.md)** — if you see X, do Y ([print PDF](./cheat-sheet.html))
-- **[MY-BLINDSPOTS.md](./MY-BLINDSPOTS.md)** — personal weak spots from practice (wiring, keys vs values, order of steps)
 - **[exercises-js/](./exercises-js/)** — plain JavaScript (04, 05, 07, 11, 12, 13 mirrors)
 - **[exercises-react/](./exercises-react/)** — optional React component refactor (frontend roles)
 

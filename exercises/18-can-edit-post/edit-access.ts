@@ -1,13 +1,25 @@
-export function canEditPost(user: any, post: any) {
-  if (user) {
-    if (user.isLoggedIn) {
-      if (post) {
-        if (post.authorId === user.id || user.role === "moderator") {
-          return true;
-        }
-      }
-    }
+// need to create a user type and a post type
+
+export type User = {
+  isLoggedIn: boolean;
+  id: string;
+  role: string;
+};
+
+export type Post = {
+  authorId: string;
+};
+
+export function canEditPost(user: User | null, post: Post | null) {
+  if (!user) {
+    return false;
+  }
+  if (!user.isLoggedIn) {
+    return false;
+  }
+  if (!post) {
+    return false;
   }
 
-  return false;
+  return post.authorId === user.id || user.role === "moderator";
 }
