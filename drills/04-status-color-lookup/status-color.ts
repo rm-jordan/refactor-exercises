@@ -1,10 +1,9 @@
-export function getStatusColor(status: string) {
-  if (status === "active") {
-    return "green";
-  }
-  if (status === "paused") {
-    return "yellow";
-  }
+const STATUS_COLORS = {
+  active: "green",
+  paused: "yellow",
+}
 
-  return "gray";
+
+export function getStatusColor(status: string) {
+return STATUS_COLORS[status] ?? "gray"
 }
