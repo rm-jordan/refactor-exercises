@@ -1,13 +1,9 @@
-export function getPriorityLabel(priority: string) {
-  if (priority === "low") {
-    return "Low";
-  }
-  if (priority === "medium") {
-    return "Medium";
-  }
-  if (priority === "high") {
-    return "High";
-  }
+const PRIORITY_LABELS: Record<string,string> = {
+  low: "Low",
+  medium: "Medium",
+  high: "High"
+}
 
-  return "Unknown";
+export function getPriorityLabel(priority: string) {
+return PRIORITY_LABELS[priority] ?? "Unknown"
 }

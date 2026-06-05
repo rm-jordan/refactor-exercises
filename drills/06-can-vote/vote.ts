@@ -1,11 +1,15 @@
-export function canVote(user: any) {
-  if (user) {
-    if (user.isLoggedIn) {
-      if (user.age >= 18) {
-        return true;
-      }
-    }
+export type User = {
+  isLoggedIn: boolean;
+  age: number;
+};
+
+export function canVote(user: User | null) {
+  if (!user) {
+    return false;
+  }
+  if (!user.isLoggedIn) {
+    return false;
   }
 
-  return false;
+  return user.age >= 18;
 }

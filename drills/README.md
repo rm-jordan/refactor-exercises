@@ -45,6 +45,49 @@ npm run reset:drill -- 01-adult-threshold
 | 14 | `14-order-line` | Subtotal + shipping constant (mini 17) |
 | 15 | `15-cart-tax-line` | Subtotal + tax + member (mini 20) |
 
+---
+
+## Set 2 — Tomorrow (16–30)
+
+Same ladder, **new files**. Patterns match set 1 — muscle memory, not new concepts.
+
+```bash
+npx vitest run drills/16-senior-discount
+npm run reset:drill -- 16-senior-discount
+```
+
+### Set 2 — Tier 1 (micro)
+
+| # | Folder | Same move as |
+|---|--------|--------------|
+| 16 | `16-senior-discount` | 01 — magic number |
+| 17 | `17-non-empty-guard` | 02 — guards |
+| 18 | `18-product-name-type` | 03 — type `any` |
+| 19 | `19-connection-label` | 04 — lookup |
+| 20 | `20-join-waitlist` | 05 — call validator |
+
+### Set 2 — Tier 2 (small)
+
+| # | Folder | Same move as |
+|---|--------|--------------|
+| 21 | `21-can-moderate` | 06 — guards + types |
+| 22 | `22-severity-label` | 07 — lookup |
+| 23 | `23-basket-subtotal` | 08 — extract subtotal |
+| 24 | `24-parking-fee` | 09 — magic numbers |
+| 25 | `25-delivery-fee` | 10 — name fees |
+
+### Set 2 — Tier 3 (medium)
+
+| # | Folder | Same move as |
+|---|--------|--------------|
+| 26 | `26-can-pin-post` | 11/18 — guards + 2 types |
+| 27 | `27-license-badge` | 12 — lookup |
+| 28 | `28-invoice-line` | 13 — types + extract |
+| 29 | `29-quote-line` | 14 — subtotal + fee |
+| 30 | `30-checkout-line` | 15/20 — tax + loyalty |
+
+**Tomorrow plan:** 16→20 (tier 1), break, 21→25, optional 26→30 if energy left.
+
 ## After the ladder
 
 | Ready for | Go to |
