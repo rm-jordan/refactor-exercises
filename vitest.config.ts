@@ -7,6 +7,7 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
     include: [
+      "drills/**/*.test.ts",
       "exercises/**/*.test.ts",
       "exercises/**/*.test.js",
       "exercises-js/**/*.test.js",

@@ -7,19 +7,22 @@ if (!raw) {
   console.error("Usage: npm run reset -- <exercise-folder>");
   console.error("       npm run reset:js -- <exercise-folder>");
   console.error("       npm run reset:react -- <exercise-folder>");
+  console.error("       npm run reset:drill -- <drill-folder>");
   console.error("Example: npm run reset -- 04-conditional-explosion");
+  console.error("         npm run reset:drill -- 01-adult-threshold");
   console.error("         npm run reset:js -- 05-magic-numbers");
   console.error("         npm run reset:react -- 01-messy-user-card");
   process.exit(1);
 }
 
+const drills = process.env.RESET_DRILLS === "1" || raw.startsWith("drills/");
 const js = process.env.RESET_JS === "1" || raw.startsWith("js/");
 const react = process.env.RESET_REACT === "1" || raw.startsWith("react/");
-const id = raw.replace(/^js\//, "").replace(/^react\//, "");
+const id = raw.replace(/^drills\//, "").replace(/^js\//, "").replace(/^react\//, "");
 
 const root = join(import.meta.dirname, "..");
-const base = react ? "exercises-react" : js ? "exercises-js" : "exercises";
-const refBase = react ? "reference-react" : js ? "reference-js" : "reference";
+const base = drills ? "drills" : react ? "exercises-react" : js ? "exercises-js" : "exercises";
+const refBase = drills ? "reference-drills" : react ? "reference-react" : js ? "reference-js" : "reference";
 const refDir = join(root, refBase, id);
 const exDir = join(root, base, id);
 

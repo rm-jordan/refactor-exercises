@@ -17,6 +17,18 @@ Run one exercise:
 npx vitest run exercises/01-types-and-readability
 ```
 
+### Drill ladder (start here)
+
+**15 tiny problems → gradually bigger.** Best if full exercises feel too large.
+
+→ **[drills/README.md](./drills/README.md)** — tier 1 (micro) through tier 3 (medium)
+
+```bash
+npm run test:drills
+npx vitest run drills/01-adult-threshold
+npm run reset:drill -- 01-adult-threshold
+```
+
 ## Exercises
 
 | # | Folder | Focus |
@@ -42,19 +54,46 @@ npx vitest run exercises/01-types-and-readability
 | 19 | `19-login-validation` | **Extra rep** — reuse validators (like 16) |
 | 20 | `20-cart-row-summary` | **Extra rep** — cart row formatter (like 17) |
 | 21 | `21-plan-label` | **Extra rep** — plan name lookup (like 04) |
+| 22 | `22-can-view-profile` | Guard clauses + types |
+| 23 | `23-shipping-label` | Shipping label lookup |
+| 24 | `24-movie-ticket-price` | Name age tiers + prices |
+| 25 | `25-receipt-total` | Types + extract subtotal (**easy 17**) |
+| 26 | `26-waitlist-email` | **Easy validation** — one email field |
+| 27 | `27-can-delete-comment` | Guard clauses + types |
+| 28 | `28-role-badge` | Role label lookup |
+| 29 | `29-free-shipping-banner` | Name free-shipping threshold |
 
 Each folder has the code to refactor, a `README.md`, and tests that define the behavior contract. **Do not edit tests** unless you find a genuine bug in them.
 
-**Extra reps (18–21):** fresh unsolved files — practice without resetting folders you already finished.
+**Extra reps (18–29):** fresh unsolved files — practice without resetting folders you already finished.
 
 ### What to practice for a 30–45 min screen
 
 | Priority | Folders | Why |
 |----------|---------|-----|
-| **Do these** | 04, 05, 06, 07, 14, **15**, **16**, 10 | One clear smell each; matches live review pacing |
-| **Also good** | 01, 02, 03, 08, 09, 11, **17** | Same moves, slightly more code |
-| **Extra reps** | **18**, **19**, **20**, **21** | Same patterns as 15–17 / 04 — new files, no reset |
+| **Do these** | 04, 05, 06, 07, **15**, 10 | One clear smell each; matches live review pacing |
+| **Also good** | 01, 02, 03, 08, 09, 11, **17**, **18**, **20** | Same moves, slightly more code |
+| **Review track** | **22–29** | Fresh files by difficulty (see below) |
+| **Validation** | **26** first, then 14; skip **16/19** until comfortable | Signup/login = two fields, easy to duplicate wrong |
 | **Stretch** | 12, 13 | Multi-step (lookup + extra rule / filter + sort) |
+
+### Review track (22–29) — suggested order
+
+| Order | Folder | Time | Pattern |
+|-------|--------|------|---------|
+| 1 | `28-role-badge` | ~10 min | Lookup |
+| 2 | `23-shipping-label` | ~10 min | Lookup |
+| 3 | `24-movie-ticket-price` | ~10 min | Magic numbers |
+| 4 | `29-free-shipping-banner` | ~10 min | Magic numbers |
+| 5 | `25-receipt-total` | ~15 min | Types + extract |
+| 6 | `22-can-view-profile` | ~15 min | Guards (like 18) |
+| 7 | `27-can-delete-comment` | ~15 min | Guards |
+| 8 | `26-waitlist-email` | ~15 min | Easy validation |
+
+```bash
+npx vitest run exercises/28-role-badge
+npx vitest run exercises/26-waitlist-email
+```
 
 ### Code interview prep (not behavioral)
 

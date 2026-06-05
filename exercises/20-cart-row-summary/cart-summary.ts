@@ -1,21 +1,33 @@
-export function formatCartRowSummary(cart: any) {
-  let subtotal = 0;
+// replace any value of cart
 
-  for (const item of cart.items) {
-    subtotal += item.price * item.quantity;
+export type Cart = {
+  items: {
+    price: number;
+    quantity: number;
+  }[];
+  state: string;
+  membershipType: string;
+}
+
+// tax rate
+const CA_TAX_RATE = 0.0825;
+
+// need to create a function to calculate the tax
+const calculateTax = (subtotal: number , state: string) => {
+  if (state === "CA") {
+    return subtotal * CA_TAX_RATE;
   }
+  return 0;
+}
 
-  let tax = 0;
-
-  if (cart.state === "CA") {
-    tax = subtotal * 0.0825;
-  }
-
+export function formatCartRowSummary(cart: Cart) {
+  const subtotal = cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const tax = calculateTax(subtotal, cart.state);
   const total = subtotal + tax;
   let displayTotal = total;
 
   if (cart.membershipType === "member") {
-    displayTotal = total * 0.95;
+    displayTotal = total * 0.95;  
   }
 
   const itemCount = cart.items.length;

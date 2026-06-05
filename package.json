@@ -6,11 +6,13 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
+    "test:drills": "vitest run drills",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "check": "npm run typecheck && npm run lint && npm run test",
     "reset": "node scripts/reset-exercise.mjs",
+    "reset:drill": "RESET_DRILLS=1 node scripts/reset-exercise.mjs",
     "reset:js": "RESET_JS=1 node scripts/reset-exercise.mjs",
     "reset:react": "RESET_REACT=1 node scripts/reset-exercise.mjs"
   },
