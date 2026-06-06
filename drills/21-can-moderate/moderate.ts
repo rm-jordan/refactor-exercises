@@ -1,11 +1,15 @@
-export function canModerate(user: any) {
-  if (user) {
-    if (user.isLoggedIn) {
-      if (user.role === "moderator" || user.role === "admin") {
-        return true;
-      }
-    }
+export type User = {
+  isLoggedIn: boolean;
+  role: string;
+};
+
+export function canModerate(user: User | null) {
+  if (!user) {
+    return false;
+  }
+  if (!user.isLoggedIn) {
+    return false;
   }
 
-  return false;
+  return user.role === "moderator" || user.role === "admin";
 }

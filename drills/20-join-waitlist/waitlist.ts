@@ -3,7 +3,7 @@ export function isValidEmail(email: string) {
 }
 
 export function joinWaitlist(email: string) {
-  if (!email.includes("@")) {
+  if (!isValidEmail(email)) {
     return { ok: false, error: "Invalid email" };
   }
 

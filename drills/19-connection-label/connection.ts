@@ -1,10 +1,8 @@
-export function getConnectionLabel(status: string) {
-  if (status === "online") {
-    return "Online";
-  }
-  if (status === "offline") {
-    return "Offline";
-  }
+const CONNECTION_LABELS = {
+  online: "Online",
+  offline: "Offline",
+}
 
-  return "Unknown";
+export function getConnectionLabel(status: string) {
+return CONNECTION_LABELS[status] ?? "Unknown"
 }

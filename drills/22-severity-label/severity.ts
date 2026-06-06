@@ -1,13 +1,9 @@
-export function getSeverityLabel(level: string) {
-  if (level === "info") {
-    return "Info";
-  }
-  if (level === "warning") {
-    return "Warning";
-  }
-  if (level === "critical") {
-    return "Critical";
-  }
+const SEVERITY_LABELS = {
+  info: "Info",
+  warning: "Warning",
+  critical: "Critical",
+}
 
-  return "Unknown";
+export function getSeverityLabel(level: string) {
+ return SEVERITY_LABELS[level] ?? "Unknown";
 }
