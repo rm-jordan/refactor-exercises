@@ -1,13 +1,12 @@
-export function getTierBadge(tier: string) {
-  if (tier === "bronze") {
-    return "Bronze";
-  }
-  if (tier === "silver") {
-    return "Silver";
-  }
-  if (tier === "gold") {
-    return "Gold";
-  }
-
-  return "Unknown";
+const TIERS: Record<string, string> = {
+  bronze: "Bronze",
+  silver: "Silver",
+  gold: "Gold"
 }
+
+
+export function getTierBadge(tier: string) {
+return TIERS[tier] ?? "Unknown"
+}
+
+

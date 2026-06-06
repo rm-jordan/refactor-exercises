@@ -1,13 +1,22 @@
-export function canViewDraft(user: any, doc: any) {
-  if (user) {
-    if (user.isLoggedIn) {
-      if (doc) {
-        if (doc.authorId === user.id) {
-          return true;
-        }
-      }
-    }
+export type User = {
+  id: string;
+  isLoggedIn: boolean;
+};
+
+export type Doc = {
+  authorId: string;
+};
+
+export function canViewDraft(user: User | null, doc: Doc | null) {
+  if (!user) {
+    return false;
+  }
+  if (!user.isLoggedIn) {
+    return false;
+  }
+  if (!doc) {
+    return false;
   }
 
-  return false;
+  return doc.authorId === user.id;
 }
