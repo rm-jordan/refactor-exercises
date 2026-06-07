@@ -25,6 +25,8 @@
 | Row formatter | loop + count + `$` | extract subtotal; format adds count | **13** |
 | Subtotal + fee | order blob | types + subtotal + one fee + format | **14** |
 | Stack capstone | tax + discount stacked | subtotal → tax → discount → format | **15** |
+| Long function | pricing + validation + log mixed | types → constants → extract math → thin orchestrator | **31** |
+| Capstone | many smells in one function | types → constants → extract helpers → thin export | **32** |
 
 ---
 
@@ -717,6 +719,193 @@ export function formatCartLine(cart: Cart) {
   }
 
   return `${itemCount} items · $${total.toFixed(2)}`;
+}
+```
+
+---
+
+# Tier 4 — Full screen (31–32)
+
+---
+
+## 31 — long-function
+
+**Smell:** one function does validation, math, and logging  
+**Move:** types → name VIP rate → extract `calculateOrderTotal` → `processOrder` orchestrates only  
+**Combines:** 03, 01, 08, 02 (extract)
+
+### Before
+
+```typescript
+export function processOrder(order: any) {
+  if (!order.customerEmail) {
+    throw new Error("Missing email");
+  }
+
+  let subtotal = 0;
+
+  for (const item of order.items) {
+    subtotal += item.price * item.quantity;
+  }
+
+  let discount = 0;
+
+  if (order.customerType === "VIP") {
+    discount = subtotal * 0.15;
+  }
+
+  const total = subtotal - discount;
+
+  console.log(
+    `Customer ${order.customerEmail} placed order for ${total}`,
+  );
+
+  return total;
+}
+```
+
+### After
+
+```typescript
+export type OrderItem = {
+  price: number;
+  quantity: number;
+};
+
+export type Order = {
+  customerEmail: string;
+  customerType?: string;
+  items: OrderItem[];
+};
+
+const VIP_DISCOUNT_RATE = 0.15;
+
+function calculateOrderTotal(order: Pick<Order, "items" | "customerType">): number {
+  const subtotal = order.items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0,
+  );
+
+  const discount =
+    order.customerType === "VIP" ? subtotal * VIP_DISCOUNT_RATE : 0;
+
+  return subtotal - discount;
+}
+
+export function processOrder(order: Order): number {
+  if (!order.customerEmail) {
+    throw new Error("Missing email");
+  }
+
+  const total = calculateOrderTotal(order);
+
+  console.log(
+    `Customer ${order.customerEmail} placed order for ${total}`,
+  );
+
+  return total;
+}
+```
+
+---
+
+## 32 — capstone-quote
+
+**Smell:** nested ifs, magic numbers, customer rules stacked  
+**Move:** type `Customer` → name all rates → extract base total + adjustments → thin `getQuote`  
+**Combines:** 03, 01, 09, 08, 15 (stacked rules)
+
+### Before
+
+```typescript
+export function getQuote(customer: any, plan: string, months: number) {
+  let total = 0;
+
+  if (months > 0) {
+    if (plan === "basic") {
+      total = months * 10;
+    } else if (plan === "express") {
+      total = months * 25;
+    } else if (plan === "enterprise") {
+      total = months * 50;
+    }
+  }
+
+  if (customer.yearsActive >= 3) {
+    total = total * 0.9;
+  }
+
+  if (customer.region === "EU") {
+    total = total * 1.2;
+  }
+
+  return Math.round(total * 100) / 100;
+}
+```
+
+### After
+
+```typescript
+export type Customer = {
+  yearsActive: number;
+  region?: string;
+};
+
+const BASIC_MONTHLY_RATE = 10;
+const EXPRESS_MONTHLY_RATE = 25;
+const ENTERPRISE_MONTHLY_RATE = 50;
+
+const LOYALTY_YEARS_FOR_DISCOUNT = 3;
+const LOYALTY_DISCOUNT_MULTIPLIER = 0.9;
+
+const EU_REGION_MARKUP_MULTIPLIER = 1.2;
+
+function calculateBaseTotal(plan: string, months: number): number {
+  if (months <= 0) {
+    return 0;
+  }
+
+  switch (plan) {
+    case "basic":
+      return months * BASIC_MONTHLY_RATE;
+    case "express":
+      return months * EXPRESS_MONTHLY_RATE;
+    case "enterprise":
+      return months * ENTERPRISE_MONTHLY_RATE;
+    default:
+      return 0;
+  }
+}
+
+function applyCustomerAdjustments(
+  subtotal: number,
+  customer: Customer,
+): number {
+  let total = subtotal;
+
+  if (customer.yearsActive >= LOYALTY_YEARS_FOR_DISCOUNT) {
+    total = total * LOYALTY_DISCOUNT_MULTIPLIER;
+  }
+
+  if (customer.region === "EU") {
+    total = total * EU_REGION_MARKUP_MULTIPLIER;
+  }
+
+  return total;
+}
+
+function roundMoney(amount: number): number {
+  return Math.round(amount * 100) / 100;
+}
+
+export function getQuote(
+  customer: Customer,
+  plan: string,
+  months: number,
+): number {
+  const baseTotal = calculateBaseTotal(plan, months);
+  const adjustedTotal = applyCustomerAdjustments(baseTotal, customer);
+  return roundMoney(adjustedTotal);
 }
 ```
 

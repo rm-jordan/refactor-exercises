@@ -88,6 +88,22 @@ npm run reset:drill -- 16-senior-discount
 
 **Tomorrow plan:** 16→20 (tier 1), break, 21→25, optional 26→30 if energy left.
 
+---
+
+## Tier 4 — Full screen (~25–30 min each)
+
+Do **after** set 2. Same skills stacked in longer files — closer to a live interview.
+
+| # | Folder | You practice |
+|---|--------|--------------|
+| 31 | `31-long-function` | Types + magic number + extract pricing (`exercises/02`) |
+| 32 | `32-capstone-quote` | Mixed smells — constants + extract + orchestrate (`exercises/10`) |
+
+```bash
+npx vitest run drills/31-long-function
+npm run reset:drill -- 31-long-function
+```
+
 ## After the ladder
 
 | Ready for | Go to |
@@ -96,6 +112,6 @@ npm run reset:drill -- 16-senior-discount
 | Lookup | `04`, `21`, `23`, `28` |
 | Row formatters | `17`, `20`, `25` |
 | Validation | `26`, then `14` |
-| Full screen | `10` capstone |
+| Full screen | `31`, `32`, then `exercises/10` |
 
 Unsolved copies: [`reference-drills/`](../reference-drills/)

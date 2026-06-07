@@ -21,7 +21,7 @@ npx vitest run exercises/01-types-and-readability
 
 **15 tiny problems → gradually bigger.** Best if full exercises feel too large.
 
-→ **[drills/README.md](./drills/README.md)** — set 1 (01–15) + **set 2 for tomorrow (16–30)**
+→ **[drills/README.md](./drills/README.md)** — set 1 (01–15), set 2 (16–30), **tier 4 capstones (31–32)**
 
 ```bash
 npm run test:drills

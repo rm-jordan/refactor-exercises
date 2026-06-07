@@ -1,13 +1,11 @@
-export function getLicenseBadge(tier: string) {
-  if (tier === "trial") {
-    return "Trial";
-  }
-  if (tier === "team") {
-    return "Team";
-  }
-  if (tier === "business") {
-    return "Business";
-  }
+const TIER_LEVELS: Record<string, string> = {
+  trial: "Trial",
+  team: "Team",
+  business: "Business"
+}
 
-  return "Unknown";
+
+
+export function getLicenseBadge(tier: string) {
+  return TIER_LEVELS[tier] ?? "Unknown"
 }
