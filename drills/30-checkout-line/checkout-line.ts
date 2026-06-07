@@ -1,23 +1,44 @@
-export function formatCheckoutLine(checkout: any) {
-  let subtotal = 0;
+export type CheckoutItem = {
+  price: number;
+  quantity: number;
+};
 
-  for (const item of checkout.items) {
+export type Checkout = {
+  items: CheckoutItem[];
+  region: string;
+  loyaltyTier: string;
+};
+
+const NY_TAX_RATE = 0.08875;
+const GOLD_LOYALTY_DISCOUNT = 0.9;
+
+function calculateSubtotal(items: CheckoutItem[]): number {
+  let subtotal = 0;
+  for (const item of items) {
     subtotal += item.price * item.quantity;
   }
+  return subtotal;
+}
 
-  let tax = 0;
-
-  if (checkout.region === "NY") {
-    tax = subtotal * 0.08875;
+function calculateTax(subtotal: number, region: string): number {
+  if (region === "NY") {
+    return subtotal * NY_TAX_RATE;
   }
+  return 0;
+}
 
+function applyGoldDiscount(total: number, loyaltyTier: string): number {
+  if (loyaltyTier === "gold") {
+    return total * GOLD_LOYALTY_DISCOUNT;
+  }
+  return total;
+}
+
+export function formatCheckoutLine(checkout: Checkout) {
+  const subtotal = calculateSubtotal(checkout.items);
+  const tax = calculateTax(subtotal, checkout.region);
   const total = subtotal + tax;
-  let displayTotal = total;
-
-  if (checkout.loyaltyTier === "gold") {
-    displayTotal = total * 0.9;
-  }
-
+  const displayTotal = applyGoldDiscount(total, checkout.loyaltyTier);
   const itemCount = checkout.items.length;
 
   if (checkout.loyaltyTier === "gold") {

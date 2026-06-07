@@ -11,6 +11,7 @@ describe("processOrder", () => {
       processOrder({
         customerEmail: "",
         items: [{ price: 10, quantity: 1 }],
+        customerType: ""
       }),
     ).toThrow("Missing email");
   });
